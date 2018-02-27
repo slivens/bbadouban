@@ -30,12 +30,13 @@ export default {
   },
   mounted () {
     console.log(this.$store)
-    console.log('events', this.$store.events)
+    console.log('events', this.$store.state)
   },
   methods: {
     onInfinite () {
       setTimeout(() => {
         this.loadMore()
+        console.log(112111)
         this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded')
       }, 1000)
     },
