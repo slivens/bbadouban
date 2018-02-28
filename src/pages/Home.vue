@@ -1,7 +1,7 @@
 <template>
   <div class="home has-header">
   <div class="home__nav">
-    <span><router-link to="">影院热映</router-link></span>
+    <span><router-link :to="{path:'/MovieView'}">影院热映</router-link></span>
     <span><router-link to="">欧美新碟榜</router-link></span>
     <span><router-link to="">注册帐号</router-link></span>
     <span><router-link to="">登入BBA</router-link></span>
@@ -36,11 +36,9 @@ export default {
     onInfinite () {
       setTimeout(() => {
         this.loadMore()
-        console.log(112111)
         this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded')
       }, 1000)
     },
-    // Dispatching Actions
     ...mapActions([
       'loadMore'
     ])

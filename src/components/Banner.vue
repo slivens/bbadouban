@@ -1,13 +1,11 @@
 <template>
   <div class="banner">
-    <!-- Ad banner -->
     <template v-if="adImg">
       <div class="banner-bg ad" v-if="adImg">
         <img :src="adImg" alt="ad">
         <span>广告</span>
       </div>
     </template>
-    <!-- Universal banner -->
     <template v-else>
       <div class="banner-bg">
         <img src="../assets/promotion_bg.jpg" alt="cover">
@@ -27,13 +25,11 @@
 export default {
   name: 'banner',
   props: {
-    // Banner title
     title: {
       type: String,
       required: false,
       default: '打开App, 浏览更多'
     },
-    // Ad banner
     adImg: {
       type: String,
       required: false

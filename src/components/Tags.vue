@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <ul>
-      <li v-for="item in items">
+      <li v-for="(item,key) in items" :key="key">
         <a href="#">{{item.name ? item.name : item}}</a>
       </li>
     </ul>
