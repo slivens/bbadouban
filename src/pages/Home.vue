@@ -2,7 +2,7 @@
   <div class="home has-header">
   <div class="home__nav">
     <span><router-link :to="{path:'/MovieView'}">影院热映</router-link></span>
-    <span><router-link to="">欧美新碟榜</router-link></span>
+    <span><router-link :to="{path:'/StatusView'}">欧美新碟榜</router-link></span>
     <span><router-link :to="{path:'/register'}">注册帐号</router-link></span>
     <span><router-link :to="{path:'/login'}">登入BBA</router-link></span>
     <list mold="thumbnail" :items="events"></list>

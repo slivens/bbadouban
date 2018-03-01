@@ -10,6 +10,7 @@ import Detail from '../components/Detail.vue'
 import SubjectView from '../pages/SubjectView.vue'
 import Login from '../pages/Login.vue'
 import Register from '../pages/Register.vue'
+
 Vue.use(Router)
 
 export default new Router({
