@@ -4,13 +4,13 @@
       <span>暂无评分</span>
     </template>
     <template v-else>
-      <div v-for="(n,key) in full" :key="key" >
+      <div v-for="(n,indexfull) in full" :key="indexfull" >
         <span class="star-full"></span>
       </div>
-      <div v-for="(n,key) in half" :key="key">
+      <div v-for="(n, indexhalf) in half" :key="indexhalf">
         <span class="star-half"></span>
       </div>
-      <div v-for="(n,key) in gray" :key="key">
+      <div v-for="(n, indexgray) in gray" :key="indexgray">
         <span class="star-gray"></span>
       </div>
       <span class="average">{{rating.average}}</span>

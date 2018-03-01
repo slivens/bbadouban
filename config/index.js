@@ -17,6 +17,13 @@ module.exports = {
         pathRewrite: {
           '^/api': '/v2'
         }
+      },
+      '/apiuser': {
+        target: 'https://douban.herokuapp.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^apiuser': ''
+        }
       }
     },
 
