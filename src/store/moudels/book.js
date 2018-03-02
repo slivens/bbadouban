@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {bookXugou, bookBuxu, bookTravel} from '../../api/index'
 const state = {
   novel: [],
   reality: [],
@@ -65,21 +65,21 @@ const actions = {
    * count: 8
    */
   async getBook ({ commit }) {
-    let bookxugou = await axios.get('/api/book/search?q=虚构类&count=8')
+    let bookxugou = await bookXugou()
     commit({
       type: 'getBook',
       tag: 'novel',
       res: bookxugou.data.books
     })
 
-    let bookbuxu = await axios.get('/api/book/search?q=非虚构类&count=8')
+    let bookbuxu = await bookBuxu()
     commit({
       type: 'getBook',
       tag: 'reality',
       res: bookbuxu.data.books
     })
 
-    let booktravel = await axios.get('/api/book/search?q=旅行&count=8')
+    let booktravel = await bookTravel()
     commit({
       type: 'getBook',
       tag: 'travel',

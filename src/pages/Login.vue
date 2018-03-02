@@ -73,7 +73,6 @@ export default {
     }
   },
   computed: {
-    // Getting Vuex State from store/modules/user
     ...mapState({
       email: state => state.user.temp_email,
       token: state => state.user.temp_token
@@ -85,7 +84,6 @@ export default {
       this.isShow ? this.passType = 'text' : this.passType = 'password'
     },
     updateData: function (e) {
-      // v-model Form handling
       this.$store.commit({
         type: 'updateData',
         name: e.target.name,
@@ -93,22 +91,18 @@ export default {
       })
     },
     beforeSubmit: function () {
-      // console.log('Submiting...')
       this.isDisabled = true
       this.loginState = '正在登录...'
     },
     onSuccess: function (res) {
-      // console.log('complete!')
       this.$router.push({name: 'StatusView'})
     },
     onError: function (err) {
-      // console.log(err)
       this.error = err.body.error
       this.loginState = '登录'
       this.isDisabled = false
     },
     onSubmit: function () {
-      // Disabled submit button
       this.beforeSubmit()
       // Login...
       this.$store.dispatch({
@@ -116,10 +110,8 @@ export default {
         email: this.email,
         token: this.token
       }).then(res => {
-        // Success handle
         this.onSuccess(res)
       }, err => {
-        // Error handle
         this.onError(err)
       })
     }
@@ -127,7 +119,6 @@ export default {
   beforeRouteEnter (to, from, next) {
     next(vm => {
       if (vm.$store.getters.currentUser.email) {
-        // next({ path: '/' })
         vm.$router.push({name: 'StatusView'})
       } else {
         next()
@@ -135,7 +126,6 @@ export default {
     })
   },
   created () {
-    // Getting local user automatic filling
     if (localStorage.getItem('email')) {
       this.$store.commit({
         type: 'getLocalUser'

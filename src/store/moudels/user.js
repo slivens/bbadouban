@@ -1,3 +1,4 @@
+import {userlogin, userregister} from '../../api/index'
 import axios from 'axios'
 
 const state = {
@@ -66,7 +67,7 @@ const actions = {
    * name: payload.name
    */
   async login ({ commit }, payload) {
-    let logininfo = await axios.get('https://douban.herokuapp.com/user/' + payload.email)
+    let logininfo = await userlogin(payload)
     console.log('slw', logininfo)
     axios.interceptors.request.use(
       config => {
@@ -98,11 +99,7 @@ const actions = {
    */
   async register ({ commit }, payload) {
     console.log(111111111)
-    let registerinfo = await axios.post('https://douban.herokuapp.com/user/', {
-      email: payload.email,
-      pass: payload.pass,
-      name: payload.name
-    })
+    let registerinfo = await userregister(payload)
     console.log('reg', registerinfo)
     localStorage.setItem('token', registerinfo.data.token)
     localStorage.setItem('email', registerinfo.data.email)

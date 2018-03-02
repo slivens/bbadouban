@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {subjectmovie, subjectbook} from '../../api/index'
 const state = {
   subject: {},
   classify: '',
@@ -43,6 +43,7 @@ const getters = {
   // Filtering summary
   summary: state => {
     if (state.subject.summary) {
+      console.log('state.subject.summary', state.subject.summary.slice(0, 120))
       return state.subject.summary.slice(0, 120)
     }
   },
@@ -60,6 +61,7 @@ const mutations = {
   getSingleSubject (state, payload) {
     state.classify = payload.classify
     state.subject = payload.res
+    console.log('state.subject', state.subject)
   }
 }
 
@@ -72,7 +74,7 @@ const actions = {
   async getSingleSubject ({commit}, payload) {
     switch (payload.classify) {
       case 'MovieView':
-        let moviedata = await axios.get(`/api/movie/subject/${payload.id}`)
+        let moviedata = await subjectmovie(payload)
         console.log('11111', moviedata)
         commit({
           type: 'getSingleSubject',
@@ -81,7 +83,7 @@ const actions = {
         })
         break
       case 'BookView':
-        let bookdata = await axios.get(`/api/book/${payload.id}`)
+        let bookdata = await subjectbook(payload)
         console.log('2222', bookdata)
         commit({
           type: 'getSingleSubject',

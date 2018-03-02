@@ -55,11 +55,14 @@ export default {
     width:48%;
     height:50px;
     text-align: center;
-    background: #808080;
+    background:#e8e6e670;
     margin-top: 10px;
     line-height: 50px;
     font-size: 16px;
     margin-left: 1%;
+  }
+  a {
+    color:#606060;
   }
 }
 </style>

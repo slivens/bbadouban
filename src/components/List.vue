@@ -68,7 +68,7 @@ export default {
     display: block;
     padding: 2.5rem 1.8rem 2.5rem 0;
     margin-left: 1.8rem;
-    border-bottom: 1px solid #808080;
+    border-bottom: 1px solid #e8e6e670;
 
     .content {
       overflow: hidden;

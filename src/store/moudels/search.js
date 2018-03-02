@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {search} from '../../api/index'
 
 const state = {
   queryRes_movie: [],
@@ -31,7 +31,7 @@ const actions = {
    * count: 3 default
    */
   async query ({ commit }, payload) {
-    const reponse = await axios.get(`/api/movie/search?q=${payload.queryStr}&count=3`)
+    const reponse = await search(payload)
     commit({
       type: 'query',
       tag: 'movie',

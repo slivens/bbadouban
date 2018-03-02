@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {theaters, soonData, topData} from '../../api/index'
 const state = {
   hotMovies: [],
   newMovies: [],
@@ -75,21 +75,21 @@ const actions = {
    * count: 8
    */
   async getMovie ({ commit }) {
-    let response = await axios.get('api/movie/in_theaters?count=8')
+    let response = await theaters()
     console.log('slwresponse', response)
     commit({
       type: 'getMovie',
       tag: 'hotMovies',
       res: response.data.subjects
     })
-    let soondata = await axios.get('/api/movie/coming_soon?count=8')
+    let soondata = await soonData()
     commit({
       type: 'getMovie',
       tag: 'newMovies',
       res: soondata.data.subjects
     })
 
-    let topdata = await axios.get('/api/movie/top250?count=8')
+    let topdata = await topData()
     commit({
       type: 'getMovie',
       tag: 'topMovies',

@@ -1,4 +1,5 @@
-import axios from 'axios'
+
+import {activities, singledata} from '../../api/index'
 const state = {
   skip: 0,
   events: [],
@@ -16,15 +17,14 @@ const mutations = {
 }
 const actions = {
   async loadMore ({commit, state}) {
-    let response = await axios.get(`/api/event/list?loc=108288&start=${state.skip}&count=3`)
-    console.log('res', response.data.events)
+    let response = await activities(state)
     commit({
       type: 'loadMore',
       res: response.data.events
     })
   },
   async getSingleEvent ({commit, state}, payload) {
-    let resDetail = await axios.get(`/api/event/${payload.id}`)
+    let resDetail = await singledata(payload)
     console.log('resDetail', resDetail)
     commit({
       type: 'getSingleEvent',

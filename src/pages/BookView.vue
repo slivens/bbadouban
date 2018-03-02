@@ -32,7 +32,6 @@ export default {
     return {}
   },
   computed: {
-    // Getting Vuex State from store/modules/book
     ...mapState({
       novel: state => state.book.novel,
       reality: state => state.book.reality,
@@ -41,13 +40,11 @@ export default {
     })
   },
   methods: {
-    // Dispatching getBook
     getBook: function () {
       this.$store.dispatch('getBook')
     }
   },
   created: function created () {
-    // Getting books data on created
     this.getBook()
   }
 }

@@ -28,7 +28,6 @@ export default {
     return {}
   },
   computed: {
-    // Getting Vuex State from store/modules/group
     ...mapState({
       group_a: state => state.group.group_a,
       group_b: state => state.group.group_b,
@@ -36,7 +35,6 @@ export default {
     })
   },
   created: function () {
-    // Dispatching getGroup on created
     this.$store.dispatch('getGroup')
   }
 }

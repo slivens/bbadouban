@@ -108,12 +108,10 @@ export default {
       this.isShow ? this.passType = 'text' : this.passType = 'password'
     },
     beforeSubmit: function () {
-      // console.log('Submiting...')
       this.isDisabled = true
       this.registerState = '正在提交...'
     },
     onSuccess: function (res) {
-      // console.log('complete!')
       console.log('slwres', res)
       this.isComplete = true
       this.token = res.data.token
@@ -125,25 +123,20 @@ export default {
       this.isDisabled = false
     },
     onSubmit: function () {
-      // Disabled submit button
       this.beforeSubmit()
-      // Regist...
       this.$store.dispatch({
         type: 'register',
         email: this.email,
         pass: this.pass,
         name: this.name
       }).then(res => {
-        // Success handle
         this.onSuccess(res)
       })
     }
   },
-  // Checkout current user
   beforeRouteEnter (to, from, next) {
     next(vm => {
       if (vm.$store.getters.currentUser.email) {
-        // next({ path: '/' })
         vm.$router.push({name: 'StatusView'})
       } else {
         next()

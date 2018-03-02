@@ -135,14 +135,12 @@ export default {
     }
   },
   computed: {
-    // Getting Vuex State from store/modules/subject
     ...mapState({
       subject: state => state.subject.subject,
       adImgUrl: state => state.subject.adImgUrl,
       questions: state => state.subject.questions,
       movieTags: state => state.movies.movieTags
     }),
-    // Getting Filtered Vuex State
     ...mapGetters({
       subjectMeta: 'subjectMeta',
       summary: 'summary',
@@ -150,18 +148,15 @@ export default {
     })
   },
   methods: {
-    // Toggle summary
     expand: function (event) {
       this.isExpand = false
     }
   },
   created () {
-    // Getting route params
     const id = this.$route.params.id
     const classify = this.$route.params.classify
     console.log('classify', classify)
 
-    // Dispatching getSingleSubject
     this.$store
       .dispatch({
         type: 'getSingleSubject',
@@ -169,7 +164,6 @@ export default {
         classify: classify
       })
       .then(res => {
-        // Success handle
         this.showLoading = false
       })
   }

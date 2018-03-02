@@ -89,6 +89,7 @@ export default {
       this.$emit('closeTalion')
     },
     goSearch: function () {
+      console.log('search')
       this.$emit('closeTalion')
       this.$router.push({
         name: 'SearchView',
@@ -141,6 +142,7 @@ ul {
   display: flex;
   justify-content: space-around;
   padding-top: 2.5rem;
+  margin-left: -1rem;
 
   li {
     width: 33.33%;
