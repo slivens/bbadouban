@@ -66,11 +66,12 @@ const actions = {
    * name: payload.name
    */
   async login ({ commit }, payload) {
-    let logininfo = await axios.get('/apiuser/user/' + payload.email)
+    let logininfo = await axios.get('https://douban.herokuapp.com/user/' + payload.email)
     console.log('slw', logininfo)
     axios.interceptors.request.use(
       config => {
         // 这里写死一个token，你需要在这里取到你设置好的token的值
+        console.log('token', payload.token)
         const token = 'Bearer ' + payload.token
         if (token) {
           // 这里将token设置到headers中，header的key是Authorization，这个key值根据你的需要进行修改即可
@@ -96,11 +97,13 @@ const actions = {
    * name: payload.name
    */
   async register ({ commit }, payload) {
-    let registerinfo = await axios.post('/apiuser/user/', {
+    console.log(111111111)
+    let registerinfo = await axios.post('https://douban.herokuapp.com/user/', {
       email: payload.email,
       pass: payload.pass,
       name: payload.name
     })
+    console.log('reg', registerinfo)
     localStorage.setItem('token', registerinfo.data.token)
     localStorage.setItem('email', registerinfo.data.email)
     localStorage.setItem('name', registerinfo.data.name)
@@ -110,6 +113,7 @@ const actions = {
       token: registerinfo.data.token,
       name: registerinfo.data.name
     })
+    return registerinfo
   }
 }
 

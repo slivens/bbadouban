@@ -1,14 +1,14 @@
 <template>
   <router-link class="user-bar" :to="{ name: currentLink}" tag="div">
     <div class="avatar">
-      <!-- <template v-if="currentUser.name">
+      <template v-if="currentUser.name">
         <img src="../assets/avatar.png" alt="avatar">
-      </template> -->
+      </template>
       <template >
         <img src="../assets/user_normal.jpg" alt="未登陆">
       </template>
     </div>
-    <div class="holder">请先登录</div>
+    <div class="holder">{{holder}}</div>
     <div class="icon icon-camera"></div>
     <div class="icon icon-pen"></div>
   </router-link>
@@ -24,12 +24,12 @@ export default {
     }
   },
   computed: {
-    // currentLink: function () {
-    //   return this.currentUser.name ? 'Home' : 'Login'
-    // },
-    // holder: function () {
-    //   return this.currentUser.name ? this.currentUser.name : '请先登录'
-    // },
+    currentLink: function () {
+      return this.currentUser.name ? 'Home' : 'Login'
+    },
+    holder: function () {
+      return this.currentUser.name ? this.currentUser.name : '请先登录'
+    },
     // Map store/user state
     ...mapGetters(['currentUser'])
   },

@@ -10,6 +10,7 @@ import Detail from '../components/Detail.vue'
 import SubjectView from '../pages/SubjectView.vue'
 import Login from '../pages/Login.vue'
 import Register from '../pages/Register.vue'
+import SearchView from '../pages/SearchView.vue'
 
 Vue.use(Router)
 
@@ -53,7 +54,13 @@ export default new Router({
         },
         {
           path: '/:classify/subject/:id',
-          component: SubjectView
+          component: SubjectView,
+          name: 'SubjectView'
+        },
+        {
+          path: '/search',
+          name: 'SearchView',
+          component: SearchView
         }
       ]
     },

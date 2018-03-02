@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     showTalion: function () {
+      console.log(1231313212313)
       this.$emit('showTalion')
     }
   }

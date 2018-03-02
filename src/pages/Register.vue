@@ -15,7 +15,7 @@
           </label>
         </div>
         <div class="form-submit">
-          <router-link class="submit" :to="{ name: 'LoginView'}" tag="button">
+          <router-link class="submit" :to="{ name: 'Login'}" tag="button">
             去登录
           </router-link>
         </div>
@@ -114,8 +114,10 @@ export default {
     },
     onSuccess: function (res) {
       // console.log('complete!')
+      console.log('slwres', res)
       this.isComplete = true
-      this.token = res.body.token
+      this.token = res.data.token
+      console.log('token', this.token)
     },
     onError: function (err) {
       this.error = err.body.error

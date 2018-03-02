@@ -34,13 +34,13 @@
           </div>
           <marking>
             <template slot="book" v-if="subject.author">
-              <router-link :to="{ name: 'LoginView'}">想读</router-link>
-              <router-link :to="{ name: 'LoginView'}">在读</router-link>
-              <router-link :to="{ name: 'LoginView'}">读过</router-link>
+              <router-link :to="{ name: 'Login'}">想读</router-link>
+              <router-link :to="{ name: 'Login'}">在读</router-link>
+              <router-link :to="{ name: 'Login'}">读过</router-link>
             </template>
             <template slot="movie" v-else>
-              <router-link :to="{ name: 'LoginView'}">想看</router-link>
-              <router-link :to="{ name: 'LoginView'}">看过</router-link>
+              <router-link :to="{ name: 'Login'}">想看</router-link>
+              <router-link :to="{ name: 'Login'}">看过</router-link>
             </template>
           </marking>
           <div class="subject-intro">
